@@ -1,20 +1,6 @@
 #include <stdio.h>
 
-void search(int arr[], int *l, size_t size) {
-    int found = 0;  // Flag to check if the number is found
-
-    for (int i = 0; i < size; i++) {
-        if (*(arr + i) == *l) {  // Pointer arithmetic
-            printf("Element found at index: %d\n", i);
-            found = 1;  // Mark as found
-            return;     // Stop searching after finding the first match
-        }
-    }
-
-    if (!found) {
-        printf("Element not found\n");
-    }
-}
+void search(int arr[], int *l, size_t size);
 
 int main() {
     int size;
@@ -40,4 +26,20 @@ int main() {
     search(arr, l, size);  // Call search function
 
     return 0;
+}
+
+void search(int arr[], int *l, size_t size) {
+    int found = 0;  // Flag to check if the number is found
+
+    for (int i = 0; i < size; i++) {
+        if (*(arr + i) == *l) {  // Pointer arithmetic
+            printf("Element found at index: %d\n", i);
+            found = 1;  // Mark as found
+            return;     // Stop searching after finding the first match
+        }
+    }
+
+    if (!found) {
+        printf("Element not found\n");
+    }
 }
