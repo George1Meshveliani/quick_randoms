@@ -1,26 +1,43 @@
 #include <stdio.h>
 
 void search(int arr[], int *l, size_t size) {
-    int check = 0;
-    for(int i = 0; i < size; i++) {
-        if (*(arr + i) == *l) {
-            printf("%d", i);
-            check = 1;
-            return;
-        } 
+    int found = 0;  // Flag to check if the number is found
+
+    for (int i = 0; i < size; i++) {
+        if (*(arr + i) == *l) {  // Pointer arithmetic
+            printf("Element found at index: %d\n", i);
+            found = 1;  // Mark as found
+            return;     // Stop searching after finding the first match
+        }
     }
-    if (!check) {
-        printf("%s", "There is no such kind of element in the given array, try again");
+
+    if (!found) {
+        printf("Element not found\n");
     }
 }
 
 int main() {
+    int size;
+
+    // Get array size from user
+    printf("Enter the number of elements in the array: ");
+    scanf("%d", &size);
+
+    int arr[size];  // Declare an array of user-defined size
+
+    // Taking array input
+    printf("Enter %d elements: ", size);
+    for (int i = 0; i < size; i++) {
+        scanf("%d", &arr[i]);  // Taking array input
+    }
+
     int n;
-    printf("%s \n", "Enter the number: ");
-    scanf("%d",&n);
-    int *l = &n;
-    int a[] = {1, 2, 3};
-    int size = sizeof(a) / sizeof(a[0]);
-    search(a, l, size);
+    printf("Enter the number to search: ");
+    scanf("%d", &n);  // Input the number to search
+
+    int *l = &n;  // Pointer to the number entered by the user
+
+    search(arr, l, size);  // Call search function
+
     return 0;
 }
