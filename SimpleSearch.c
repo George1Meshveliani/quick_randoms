@@ -1,29 +1,28 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void search(int arr[], int *l, size_t size);
 
 int main() {
     int size;
-
-    // Get array size from user
-    printf("Enter the number of elements in the array: ");
+    int l;
+    printf("Enter the size of the array: ");
     scanf("%d", &size);
-
-    int arr[size];  // Declare an array of user-defined size
-
-    // Taking array input
-    printf("Enter %d elements: ", size);
-    for (int i = 0; i < size; i++) {
-        scanf("%d", &arr[i]);  // Taking array input
+    
+    int *arr = (int*) malloc(size * sizeof(int));
+    if (arr == NULL) {
+        printf("Memory allocation failed.\n");
+        return 1;
     }
-
-    int n;
-    printf("Enter the number to search: ");
-    scanf("%d", &n);  // Input the number to search
-
-    int *l = &n;  // Pointer to the number entered by the user
-
-    search(arr, l, size);  // Call search function
+    
+    printf("Enter elements:\n");
+    for (int i =  0; i < size; i++) {
+        scanf("%d", &arr[i]);
+    }
+    
+    printf("Enter the number you want to find: \n");
+    scanf("%d", &l);
+    search(arr, &l, size);
 
     return 0;
 }
