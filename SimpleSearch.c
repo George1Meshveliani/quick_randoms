@@ -24,6 +24,8 @@ int main() {
     scanf("%d", &l);
     search(arr, &l, size);
 
+    free(arr);
+
     return 0;
 }
 
