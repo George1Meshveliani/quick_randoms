@@ -11,12 +11,18 @@ int main() {
     cout << "Array size: " << returnArraySize(arr) << endl;
     cout << "Number of sub arrays: " << numberOfSubArrays(arr) << endl;
     
+
     
     for (int i = 0; i < arr.size(); i++) {
         for (int j = i; j < arr.size(); j++) {
+            cout << "[";
             for (int k = i; k <= j; k++) {
-                cout << arr[k] << "|";
+                cout << arr[k];
+                if (k != j) {
+                    cout << ",";
+                }
             } 
+            cout << "]" << endl;
         }
     }
     return 0;
