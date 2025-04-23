@@ -5,6 +5,7 @@ using namespace std;
 int returnArraySize(vector<int> arr);
 int numberOfSubArrays(vector<int> arr);
 void printSubArrays(vector<int> arr);
+int subArrayCounter(vector<int> arr);
 
 int main() {
     vector<int> arr = {1, 2, 3};
@@ -12,6 +13,7 @@ int main() {
     cout << "Array size: " << returnArraySize(arr) << endl;
     cout << "Number of sub arrays: " << numberOfSubArrays(arr) << endl;
     printSubArrays(arr);
+    cout << "Counted sub arrays: " << subArrayCounter(arr) << endl;
     return 0;
 }
 
@@ -38,6 +40,16 @@ void printSubArrays(vector<int> arr) {
             cout << "];" << endl;
         }
     }
+}
+
+int subArrayCounter(vector<int> arr) {
+    int counter = 0;
+    for (int i = 0; i < arr.size(); i++) {
+        for (int j = i; j < arr.size(); j++) {
+            counter++;
+        }
+    }
+    return counter;
 }
 
 
