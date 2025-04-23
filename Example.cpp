@@ -31,8 +31,11 @@ void printSubArrays(vector<int> arr) {
             cout << "["; 
             for (int i = start; i <= end; i++) {
                 cout << arr[i];
+                if (i != end) {
+                    cout << ",";
+                }
             }
-            cout << "]" << endl;
+            cout << "];" << endl;
         }
     }
 }
