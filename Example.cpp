@@ -9,7 +9,7 @@ int subArrayCounter(vector<int> arr);
 int maximumSumOfSubArrays(vector<int> arr);
 
 int main() {
-    vector<int> arr = {1, 2, 3};
+    vector<int> arr = {1, 2, 3, -12, 32, 12, 11};
     int n = arr.size();
     cout << "Array size: " << returnArraySize(arr) << endl;
     cout << "Number of sub arrays: " << numberOfSubArrays(arr) << endl;
@@ -29,6 +29,7 @@ int numberOfSubArrays(vector<int> arr) {
 }
 
 void printSubArrays(vector<int> arr) {
+    cout << "All possible subarrays: " << endl;
     int n = arr.size();
     for (int start = 0; start < n; start++) {
         for (int end = start; end < n; end++) {
