@@ -7,15 +7,22 @@ int numberOfSubArrays(vector<int> arr);
 void printSubArrays(vector<int> arr);
 int subArrayCounter(vector<int> arr);
 int maximumSumOfSubArrays(vector<int> arr);
+int maxEvenSumOfSubArrays(vector<int> arr);
 
 int main() {
-    vector<int> arr = {1, 2, 3, -12, 32, 12, 11};
+    vector<int> arr = {1, 2, 3, -12, 32, 12, 11, 1};
     int n = arr.size();
+
     cout << "Array size: " << returnArraySize(arr) << endl;
     cout << "Number of sub arrays: " << numberOfSubArrays(arr) << endl;
+
     printSubArrays(arr);
+
     cout << "Counted sub arrays: " << subArrayCounter(arr) << endl;
     cout << "Maximum sum of subarrays: " << maximumSumOfSubArrays(arr) << endl;
+    cout << "Maximum even sum of subarrays: " << maximumSumOfSubArrays(arr) << endl;
+
+
     return 0;
 }
 
@@ -71,5 +78,23 @@ int maximumSumOfSubArrays(vector<int> arr) {
     }
     return maxSum;
 }
+
+ int maxEvenSumOfSubArrays(vector<int> arr) {
+    int n = arr.size();
+    int maxEvenSum = 0;
+
+    for (int start = 0; start < n; start++) {
+        for (int end = start; end < n; end++) {
+            int sum = 0;
+            for (int k = start; k <= end; k++) {
+                sum += arr[k];
+                if (sum > maxEvenSum && maxEvenSum % 2 == 0) {
+                    maxEvenSum = sum;
+                }
+            }
+        }
+    }
+    return maxEvenSum;
+ }
 
 
