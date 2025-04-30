@@ -8,6 +8,7 @@ void printSubArrays(vector<int> arr);
 int subArrayCounter(vector<int> arr);
 int maximumSumOfSubArrays(vector<int> arr);
 void evenSumOfSubArrays(vector<int> arr);
+void specificSubArray(vector<int> arr, int givenSum);
 
 int main() {
     vector<int> arr = {1, 2, 3};
@@ -22,6 +23,7 @@ int main() {
     cout << "Maximum sum of subarrays: " << maximumSumOfSubArrays(arr) << endl;
     
     evenSumOfSubArrays(arr);
+    specificSubArray(arr, 5);
 
 
     return 0;
@@ -82,7 +84,6 @@ int maximumSumOfSubArrays(vector<int> arr) {
 
 void evenSumOfSubArrays(vector<int> arr) {
     int n = arr.size();
-    int result = 0;
 
     for (int start = 0; start < n; start++) {
         int sum = 0;
@@ -101,4 +102,29 @@ void evenSumOfSubArrays(vector<int> arr) {
         }
     }
  }
+ 
+void specificSubArray(vector<int> arr, int givenSum) {
+    int n = arr.size();
+    int count = 0;
+
+    for (int start = 0; start < n; start++) {
+        int sum = 0;
+        for (int end = start; end < n; end++) {
+            sum += arr[end];
+            if (sum == givenSum) {
+                cout << "[";
+                for (int i = start; i <= end; i++) {
+                    cout << arr[i];
+                    if (i != end) cout << ", ";
+                }
+                cout << "]" << endl;
+                count++;
+            }
+        }
+    }
+
+    if (count == 0) {
+        cout << "No subarrays found with sum " << givenSum << "." << endl;
+    }
+}
 
