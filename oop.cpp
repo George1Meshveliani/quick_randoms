@@ -4,6 +4,8 @@
 using namespace std;
 
 class Car {
+    private:
+        int carPrice;
     public:
         int year;
         string brand;
@@ -26,11 +28,15 @@ class Car {
         int maxSpeed(int speed) {
             return speed;
         } 
-};
 
-// void Car::myMethod() {
-//     cout << "2" << endl;
-// };
+        void setCarPrice(int p) {
+            carPrice = p;
+        }
+
+        int getCarPrice() {
+            return carPrice;
+        }
+};
 
 int main() {
     
@@ -43,6 +49,9 @@ int main() {
     cout << "Year: " << carObj.year << endl;
     cout << "Brand: " << carObj.brand << endl;
     cout << "Max speed is: " << carObj.maxSpeed(299) << endl;
+
+    carObj1.setCarPrice(10000);
+    cout << carObj1.getCarPrice() << endl;
 
     return 0;
 }
