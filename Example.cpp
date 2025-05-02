@@ -142,7 +142,10 @@ int longestSubArrayWithSumZero(vector<int> arr) {
         for (int end = start; end < n; end++) {
             sum += arr[end];
             if (sum == 0) {
-                result = end + 1;
+                int length = end - start + 1;
+                if (length > result) {
+                    result = length;
+                }
             }
         }
     }
