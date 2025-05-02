@@ -9,9 +9,10 @@ int subArrayCounter(vector<int> arr);
 int maximumSumOfSubArrays(vector<int> arr);
 void evenSumOfSubArrays(vector<int> arr);
 void specificSubArray(vector<int> arr, int givenSum);
+int longestSubArrayWithSumZero(vector<int> arr);
 
 int main() {
-    vector<int> arr = {1, 2, 3, 4, 5};
+    vector<int> arr = {1, 2, 3, 4, 5, -5};
     int n = arr.size();
 
     cout << "Array size: " << returnArraySize(arr) << endl;
@@ -25,6 +26,8 @@ int main() {
     evenSumOfSubArrays(arr);
     cout << endl;
     specificSubArray(arr, 5);
+
+    cout << "Longest subarray with sum zero: " << longestSubArrayWithSumZero(arr) << endl;
 
 
     return 0;
@@ -128,5 +131,22 @@ void specificSubArray(vector<int> arr, int givenSum) {
     if (count == 0) {
         cout << "No subarrays found with sum " << givenSum << "." << endl;
     }
+}
+
+int longestSubArrayWithSumZero(vector<int> arr) {
+    int n = arr.size();
+    int result = 0;
+
+    for (int start = 0; start < n; start++) {
+        int sum =  0;
+        for (int end = start; end < n; end++) {
+            sum += arr[end];
+            if (sum == 0) {
+                result = end + 1;
+            }
+        }
+    }
+
+    return result;
 }
 
