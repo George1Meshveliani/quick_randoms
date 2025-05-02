@@ -11,7 +11,7 @@ void evenSumOfSubArrays(vector<int> arr);
 void specificSubArray(vector<int> arr, int givenSum);
 
 int main() {
-    vector<int> arr = {1, 2, 3};
+    vector<int> arr = {1, 2, 3, 4, 5};
     int n = arr.size();
 
     cout << "Array size: " << returnArraySize(arr) << endl;
@@ -23,6 +23,7 @@ int main() {
     cout << "Maximum sum of subarrays: " << maximumSumOfSubArrays(arr) << endl;
     
     evenSumOfSubArrays(arr);
+    cout << endl;
     specificSubArray(arr, 5);
 
 
@@ -68,6 +69,7 @@ int subArrayCounter(vector<int> arr) {
 int maximumSumOfSubArrays(vector<int> arr) {
     int n = arr.size();
     int maxSum = 0;
+
     for (int start = 0; start < n; start++) {
         for (int end = start; end < n; end++) {
             int sum = 0;
